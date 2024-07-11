@@ -1,0 +1,65 @@
+# Grocery Management System
+
+# Define a class for the grocery management system
+class GroceryManagementSystem:
+    def __init__(self):
+        self.grocery_list = []  # Initialize an empty list to store grocery items
+
+    def display_menu(self):
+        # Display the main menu
+        print("\n--- Grocery Management System ---")
+        print("1. Add Item")
+        print("2. Remove Item")
+        print("3. View Items")
+        print("4. Exit")
+
+    def add_item(self):
+        # Prompt the user to add a new item
+        item = input("Enter the item name: ")
+        quantity = input("Enter the quantity: ")
+        self.grocery_list.append({"item": item, "quantity": quantity})
+        print(f"Item '{item}' with quantity '{quantity}' added successfully.")
+
+    def remove_item(self):
+        # Prompt the user to remove an existing item
+        item = input("Enter the item name to remove: ")
+        found = False
+        for i in range(len(self.grocery_list)):
+            if self.grocery_list[i]["item"] == item:
+                del self.grocery_list[i]
+                found = True
+                print(f"Item '{item}' removed successfully.")
+                break
+        if not found:
+            print(f"Item '{item}' not found in the list.")
+
+    def view_items(self):
+        # Display all items in the grocery list
+        if not self.grocery_list:
+            print("No items in the list.")
+        else:
+            print("\n--- Grocery List ---")
+            for item in self.grocery_list:
+                print(f"Item: {item['item']}, Quantity: {item['quantity']}")
+
+    def run(self):
+        # Main loop to run the grocery management system
+        while True:
+            self.display_menu()
+            choice = input("Enter your choice: ")
+            if choice == '1':
+                self.add_item()
+            elif choice == '2':
+                self.remove_item()
+            elif choice == '3':
+                self.view_items()
+            elif choice == '4':
+                print("Exiting the system. Goodbye!")
+                break
+            else:
+                print("Invalid choice. Please try again.")
+
+# Create an instance of the GroceryManagementSystem class and run the system
+if __name__ == "__main__":
+    system = GroceryManagementSystem()
+    system.run()
