@@ -1,0 +1,62 @@
+# Prompt the user to choose between two games: Car or Guess Game
+games = input("Which one you want to play\nCar or Guess Game: ")
+
+# Check if the user's choice is "CAR"
+if games.upper() == "CAR":
+    command = ""  # Initialize command variable
+    started = False  # Variable to track if the car is started or not
+
+    # Start a loop to continuously take user commands for the car game
+    while True:
+        command = input("> ").lower()  # Take input from the user and convert it to lowercase
+
+        # If the command is "start"
+        if command == "start":
+            if started:
+                print("Car has Already Started...")  # Print message if the car is already started
+            else:
+                started = True  # Change the state to started
+                print("Car has Started...")  # Print message indicating the car has started
+
+        # If the command is "stop"
+        elif command == "stop":
+            if not started:
+                print("Car has Already Stopped...")  # Print message if the car is already stopped
+            else:
+                started = False  # Change the state to stopped
+                print("Car has Stopped...")  # Print message indicating the car has stopped
+
+        # If the command is "help"
+        elif command == "help":
+            # Print instructions for the car game
+            print("""
+start - To start the car.
+stop - To stop the car.
+quit - To quit the car game.
+            """)
+
+        # If the command is "quit"
+        elif command == "quit":
+            break  # Exit the loop, ending the car game
+
+        # For any other unrecognized command
+        else:
+            print(f"{command} I don't Understand")  # Print message indicating unrecognized command
+
+# If the user's choice is not "CAR", play the guess game
+else:
+    secret_number = 5  # The secret number to guess
+    guess_count = 0  # Variable to count the number of guesses
+    guess_limit = 3  # Maximum number of guesses allowed
+
+    # Start a loop to allow the user to guess the number
+    while guess_count < guess_limit:
+        guess = int(input("Guess: "))  # Take a guess from the user and convert it to an integer
+        guess_count += 1  # Increment the guess count
+
+        if guess == secret_number:
+            print("You Won!")  # Print winning message if the guess is correct
+            break  # Exit the loop as the user has guessed correctly
+
+    else:
+        print("Sorry! You failed")  # Print failure message if all guesses are used up
