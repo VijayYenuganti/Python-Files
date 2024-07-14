@@ -1,63 +1,67 @@
-# Prompt the user to choose between two games: Car or Guess Game
-games = input("Which one you want to play\nCar or Guess Game: ")
+# Prompt the user to choose a game: Car game or Guess game
+games = input("Which one do you want to play\nCar or Guess Game: ")
 
-# Check if the user's choice is "CAR"
+# Check the user's choice, ignoring case differences
 if games.upper() == "CAR":
+    # Car game logic
     command = ""  # Initialize command variable
-    started = False  # Variable to track if the car is started or not
-
-    # Start a loop to continuously take user commands for the car game
+    started = False  # Initialize car status (not started)
+    
     while True:
-        command = input("> ").lower()  # Take input from the user and convert it to lowercase
-
-        # If the command is "start"
+        # Prompt the user for a command
+        command = input("> ").lower()
+        
+        # Handle the 'start' command
         if command == "start":
             if started:
-                print("Car has Already Started...")  # Print message if the car is already started
+                print("Car has already started...")
             else:
-                started = True  # Change the state to started
-                print("Car has Started...")  # Print message indicating the car has started
-
-        # If the command is "stop"
+                started = True
+                print("Car has started...")
+        
+        # Handle the 'stop' command
         elif command == "stop":
             if not started:
-                print("Car has Already Stopped...")  # Print message if the car is already stopped
+                print("Car has already stopped...")
             else:
-                started = False  # Change the state to stopped
-                print("Car has Stopped...")  # Print message indicating the car has stopped
-
-        # If the command is "help"
+                started = False
+                print("Car has stopped...")
+        
+        # Handle the 'help' command
         elif command == "help":
-            # Print instructions for the car game
-            # or can write (print("Start - To Start the car.\nStop - To stop the car.\nquit - To quit the game."))
             print("""
 start - To start the car.
 stop - To stop the car.
 quit - To quit the car game.
             """)
-
-        # If the command is "quit"
+        
+        # Handle the 'quit' command to exit the game
         elif command == "quit":
-            break  # Exit the loop, ending the car game
-
-        # For any other unrecognized command
+            break
+        
+        # Handle any unrecognized commands
         else:
-            print(f"{command} I don't Understand")  # Print message indicating unrecognized command
-
-# If the user's choice is not "CAR", play the guess game
-else:
-    secret_number = 5  # The secret number to guess
-    guess_count = 0  # Variable to count the number of guesses
-    guess_limit = 3  # Maximum number of guesses allowed
-
-    # Start a loop to allow the user to guess the number
+            print(f"{command} I don't understand")
+            
+elif games.upper() == "GUESS":
+    # Guess game logic
+    secret_number = 5  # The secret number to be guessed
+    guess_count = 0  # Initialize the number of guesses made
+    guess_limit = 3  # Set the limit for the number of guesses
+    
     while guess_count < guess_limit:
-        guess = int(input("Guess: "))  # Take a guess from the user and convert it to an integer
+        # Prompt the user to guess the number
+        guess = int(input("Guess: "))
         guess_count += 1  # Increment the guess count
-
+        
+        # Check if the guessed number is correct
         if guess == secret_number:
-            print("You Won!")  # Print winning message if the guess is correct
-            break  # Exit the loop as the user has guessed correctly
-
+            print("You won!")
+            break
     else:
-        print("Sorry! You failed")  # Print failure message if all guesses are used up
+        # If the user runs out of guesses, they lose
+        print("Sorry! You failed")
+        
+else:
+    # Handle invalid game choice
+    print(f"{games} Please select a valid game.")
