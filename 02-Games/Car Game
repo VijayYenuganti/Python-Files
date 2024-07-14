@@ -28,6 +28,7 @@ while True:
     # Check if the command is "help"
     elif command == "help":
         # Print instructions for the user
+        # or can write (print("Start - To Start the car.\nStop - To stop the car.\nquit - To quit the game."))
         print("""
 Start - to start the car.
 stop - to stop the car.
