@@ -1,0 +1,25 @@
+# Initialize the secret number that the user needs to guess
+secret_number = 5
+
+# Initialize the guess count to zero
+guess_count = 0
+
+# Set the limit for the number of guesses allowed
+guess_limit = 3
+
+# Start a loop that will run until the guess count reaches the guess limit
+while guess_count < guess_limit:
+    # Prompt the user to enter a guess and convert it to an integer
+    guess = int(input("Guess: "))
+    
+    # Increment the guess count by 1
+    guess_count += 1
+    
+    # Check if the user's guess matches the secret number
+    if guess == secret_number:
+        # If the guess is correct, print a winning message
+        print("You Won!")
+        break  # Exit the loop since the user guessed correctly
+else:
+    # This else block runs if the while loop condition becomes false (user used all guesses)
+    print("Sorry! You Failed")  # Print a failure message
