@@ -29,6 +29,7 @@ if games.upper() == "CAR":
         # If the command is "help"
         elif command == "help":
             # Print instructions for the car game
+            # or can write (print("Start - To Start the car.\nStop - To stop the car.\nquit - To quit the game."))
             print("""
 start - To start the car.
 stop - To stop the car.
