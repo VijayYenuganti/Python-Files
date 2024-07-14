@@ -1,0 +1,44 @@
+command = ""  # Initialize an empty string variable to store user commands
+started = False  # Boolean variable to track whether the car is started or not
+
+# Start an infinite loop to continuously take user commands
+while True:
+    command = input("> ").lower()  # Take input from the user, convert it to lowercase, and store it in 'command'
+
+    # Check if the command is "start"
+    if command == "start":
+        if started:
+            # If the car is already started, print this message
+            print("Car has already Started...")
+        else:
+            # If the car is not started, start the car and print this message
+            started = True
+            print("Car has Started...")
+
+    # Check if the command is "stop"
+    elif command == "stop":
+        if not started:
+            # If the car is already stopped, print this message
+            print("Car has already Stopped...")
+        else:
+            # If the car is started, stop the car and print this message
+            started = False
+            print("Car has Stopped...")
+
+    # Check if the command is "help"
+    elif command == "help":
+        # Print instructions for the user
+        print("""
+Start - to start the car.
+stop - to stop the car.
+quit - to quit the game.
+        """)
+
+    # Check if the command is "quit"
+    elif command == "quit":
+        break  # Exit the loop, ending the game
+
+    # If the command is not recognized
+    else:
+        # Print a message indicating the command is not understood
+        print("I don't understand!")
