@@ -1,4 +1,7 @@
-# Temperature Converter
+# Simple Temperature Converter
+
+# Tip:- for Degree sign on Windows Press ALT + 0176 = °
+# Tip:- for Degree sign on Mac Press CMD + Option + 8 = °
 
 # Get user input for temperature and unit
 try:
