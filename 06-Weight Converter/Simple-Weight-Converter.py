@@ -5,13 +5,12 @@ unit = input("To which unit you want to convert (K or L) > ").upper()
 
 if unit == "K":
     weight /= 2.205
-    in_units = "Kgs."
+    unit = "Kgs."
+    print(f"Your weight is: {round(weight, 2)} {unit}")
 elif unit == "L":
     weight *= 2.205
-    in_units = "Lbs."
+    unit = "Lbs."
+    print(f"Your weight is: {round(weight, 2)} {unit}")
 else:
-    print(f"{unit}Enter Valid Units.")
-
-print(f"Your weight is: {round(weight, 2)} {in_units}")
-
+    print(f"Enter Valid Units.")
 
