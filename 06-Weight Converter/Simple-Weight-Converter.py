@@ -1,9 +1,12 @@
 # Weight Converter.
 
-weight = float(input("Enter Your Weight > "))
-unit = input("To which unit you want to convert (K or L) > ")
+try:
+    weight = float(input("Enter Your Weight > "))
+except ValueError:
+    print("Enter the Weight Units in Numeric")
 
-unit.strip().upper()
+
+unit = input("To which unit you want to convert (K or L) > ").upper().strip()
 
 if unit == "K":
     weight /= 2.205
